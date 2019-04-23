@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="/ssm_demo/js/jquery-3.3.1.min.js"></script>
+<body>
+<div class="loginout">
+    <a href="/ssm_demo/customer/login">登录</a>
+</div>
+<div class="login">
+    <a href="/ssm_demo/customer/gotoInfo"><span id="span_username"></span></a><br>
+    <a href="/ssm_demo/customer/gotoAdd">写游记</a><br>
+    <a href="/ssm_demo/note/gotoMylist">我的游记</a>
+    <a href="/ssm_demo/note/gotoMylistF">我的游记分页</a>
+    <a href="" class="login_out">退出</a>
+</div>
+
+</body>
+<script>
+    $(function () {
+        //查询用户登录信息
+        $.get("customer/getLoginTelno", {}, function (result) {
+            var data =result.data;
+            console.log(data)
+            if(data !=null){
+                var customerTelno = data.customerTelno;
+                $("#span_username").html(customerTelno);
+                $(".loginout").hide();
+                $(".login").show();
+            }else{
+                $(".loginout").show();
+                $(".login").hide();
+            }})});
+
+    $(".login_out").click(function(){
+        $.get("customer/logout", {}, function (result) {
+            console.log("result:" + result);
+            var logoutStatus =result.status;
+            if(logoutStatus=="SUCCESS") {
+                //退出成功
+                $(".loginout").show();
+                $(".login").hide();
+            }
+        });
+    });
+        </script>
+
+            </html>

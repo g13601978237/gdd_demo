@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>myCard</title>
+    <link rel="stylesheet"href="/ssm_demo/css/bootstrap.css">
+    <link rel="stylesheet"href="/ssm_demo/css/bootstrap-theme.css">
+    <script src="/ssm_demo/js/jquery-3.3.1.min.js"></script>
+    <script src="/ssm_demo/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="/ssm_demo/css/Mycard.css">
+    <link rel="icon" href="">
+    <script src="/ssm_demo/js/ajaxfileupload.js"></script>
+    <script src="/ssm_demo/js/jquery.form.js"></script>
+    <!-- 加载用户的信息-->
+</head>
+<body>
+
+<div class="mfw-header">
+    <div class="head-logo">
+        <img src="../images/马蜂窝图标.jpg">
+    </div>
+    <ul class="head-nav">
+        <li><a>首页</a></li>
+        <li><a>目的地</a></li>
+        <li><a>旅游攻略</a></li>
+
+        <li><a>旅行商城</a></li>
+        <div class="head-nav-down">
+            <ul>
+                <li>自由行</li>
+                <li>跟团游</li>
+                <li>当地游</li>
+                <li>国内机票</li>
+                <li>签证</li>
+            </ul>
+        </div>
+        <li><a>酒店</a></li>
+        <li><a>社区</a></li>
+    </ul>
+    <div class="head-searchform">
+        <input type="text">
+    </div>
+    <span><a>打卡</a></span>
+    <a class="drop-trigger">
+        消息
+    </a>
+    <div class="low">
+        <ul>
+            <li><a>私信</a></li>
+            <li><a>小组消息</a></li>
+            <li><a>系统通知</a></li>
+            <li><a>问答消息</a></li>
+            <li><a>回复消息</a></li>
+            <li><a>喜欢与收藏</a></li>
+            <li><a>好友动态</a></li>
+        </ul>
+    </div>
+    <div class="head-user">
+        <a><img src="../images/me.jpeg"></a>
+        <div class="low">
+            <ul>
+                <li><a>私信</a></li>
+                <li><a>小组消息</a></li>
+                <li><a>系统通知</a></li>
+                <li><a>问答消息</a></li>
+                <li><a>回复消息</a></li>
+                <li><a>喜欢与收藏</a></li>
+                <li><a>好友动态</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!---------------------------------------------------------------------->
+<div class="wrapper">
+    <ul class="nav-tabs">
+        <li class="cc"><a href="#my-info" data-toggle="tab">我的信息</a></li>
+        <li class="bb"><a href="#my-head" data-toggle="tab">我的头像</a></li>
+        <li class="bb"><a href="#setting"  data-toggle="tab">绑定设置</a></li>
+        <li class="bb"><a href="#safe"  data-toggle="tab">账号安全</a></li>
+        <li class="bb"><a href="#my-home"  data-toggle="tab">我的窝设置</a></li>
+        <li class="bb"><a href="#black"  data-toggle="tab">黑名单管理</a></li>
+        <li class="bb"><a href="#money"  data-toggle="tab">我的钱包</a></li>
+    </ul>
+    <div class="tab-content">
+        <div id="my-info" class="tab-pane active">
+            <div class="content">
+                <div class="hd">
+                    <strong>我的信息</strong>
+                    <span>资料完善度</span>
+                    <div class="progress">
+                        <div class="num">70%</div>
+                        <div class="on"></div>
+                    </div>
+                </div>
+                <div class="userinfo">
+                    <form method="post">
+                        <ul>
+                            <li>
+                                <span>名号：</span>
+                                <input type="text" name="custName" placeholder="新之助">
+                            </li>
+                            <li>
+                                <span>性别：</span>
+                                <input type="radio" name="custGender" value="M" checked="checked"><p>男</p>
+                                <input type="radio" name="custGender" value="F"><p>女</p>
+                            </li>
+                            <li>
+                                <span>居住城市：</span>
+                                <input type="text" name="custCity">
+                            </li>
+                            <li>
+                                <span>出生日期：</span>
+                                <input type="text" name=custBirth>
+                            </li>
+                            <li>
+                                <span>个人简介：</span>
+                                <textarea></textarea>
+                            </li>
+                            <li>
+                                <span>收货地址：</span>
+                                <a class="aa">新增收货地址</a>
+                            </li>
+                        </ul>
+                        <input type="submit" name="保存" value="保存">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="my-head" class="tab-pane">
+            <div class="content">
+                <div class="hd">
+                    <strong>我的头像</strong>
+                    <span>资料完善度</span>
+                    <div class="progress">
+                        <div class="num">70%</div>
+                        <div class="on"></div>
+                    </div>
+                </div>
+                <div class="me-pic"><a><img class="ceshi" src="/ssm_demo/images/me.jpeg"/></a></div>
+                <div class="btn-sub">
+                    <div class="on_file">
+                        <a>选择图片</a>
+                        <form id="myPicForm" enctype="multipart/form-data">
+                            <input type="file" name="uploadpic" id="headfile">
+                            <!--<input type="hidden" id="MyImgPath" name="MyImgPath">-->
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id="setting" class="tab-pane">
+            <div class="content">
+                <div class="hd">
+                    <strong>绑定设置</strong>
+                    <span>资料完善度</span>
+                    <div class="progress">
+                        <div class="num">70%</div>
+                        <div class="on"></div>
+                    </div>
+                </div>
+                <div class="blinding">
+                    <div class="title">好东西就要与朋友们分享，97% 的蜂蜂正在将精彩内容分享给朋友们</div>
+                    <div class="bind_item">
+                        <div class="weibo">
+                            <img src="">
+                        </div>
+                        <div class="weibo_txt">
+                            <p>我的新浪微博账户未绑定</p>
+                            <p>93%的蜂蜂正在分享</p>
+                            <div class="now_bind"><a href="">
+                                现在绑定
+                            </a></div>
+                        </div>
+                        <div class="weibo">
+                            <img src="">
+                        </div>
+                        <div class="weibo_txt">
+                            <p>我的新浪微博账户未绑定</p>
+                            <p>93%的蜂蜂正在分享</p>
+                            <div class="now_bind"><a href="">
+                                现在绑定
+                            </a></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="safe" class="tab-pane">
+            <div class="content">
+                <div class="hd">
+                    <strong>账号安全</strong>
+                    <span>资料完善度</span>
+                    <div class="progress">
+                        <div class="num">70%</div>
+                        <div class="on"></div>
+                    </div>
+                </div>
+                <div class="passport">
+                    <p>密码：</p>
+                    <a>修改密码</a>
+                    <div class="update">
+                        <img src="../images/手机.svg">
+                        <p>手机验证修改</p>
+                    </div>
+                </div>
+                <div class="bind_eml">
+                    <p>绑定邮箱：</p>
+                    <a>设置邮箱</a>
+                </div>
+                <div class="bind_phone">
+                    <p>绑定手机：136****8237</p>
+                    <span>已绑定</span>
+                    <a>更改号码</a>
+                </div>
+                <div class="cancellation">
+                    <p>账号注销：</p>
+                    <a>申请注销</a>
+                </div>
+            </div>
+        </div>
+        <div id="my-home" class="tab-pane">
+            <div class="content">
+                <div class="hd">
+                    <strong>我的窝设置</strong>
+                    <span>资料完善度</span>
+                    <div class="progress">
+                        <div class="num">70%</div>
+                        <div class="on"></div>
+                    </div>
+                </div>
+                <P>我的域名：www.4008208820.cn</P>
+            </div>
+        </div>
+        <div id="black" class="tab-pane">
+            <div class="content">
+                <div class="hd">
+                    <strong>黑名单管理</strong>
+                    <span>资料完善度</span>
+                    <div class="progress">
+                        <div class="num">70%</div>
+                        <div class="on"></div>
+                    </div>
+                </div>
+                <div class="black_user">
+                    <div class="black_user_left">
+                            <span class="first">
+                                <input type="text" placeholder="请输入用户昵称搜索指定用户">
+                            </span>
+                        <span>
+                                <a>加入黑名单</a>
+                            </span>
+                    </div>
+                    <div class="black_user_right"></div>
+                </div>
+            </div>
+        </div>
+        <div id="money" class="tab-pane">
+            <div class="content">
+                <div class="hd">
+                    <strong>我的钱包</strong>
+                    <span>资料完善度</span>
+                    <div class="progress">
+                        <div class="num">70%</div>
+                        <div class="on"></div>
+                    </div>
+                </div>
+                <div class="my-money">
+                    <span>余额:0(此余额不可更改)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="/ssm_demo/js/Mycard.js"></script>
+<script src="/ssm_demo/js/customer/info.js">  </script>
+</body>
+</html>
